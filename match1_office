@@ -1,0 +1,23 @@
+String excep = driver.findElement(By.xpath("((//*[local-name()='svg']//*[@class=\"highcharts-label highcharts-data-label highcharts-data-label-color-0\"])[1]//*[name()='tspan'])[1]")).getText();
+		Thread.sleep(2000);
+		System.out.println(excep);
+		Thread.sleep(5000);
+		
+		WebElement	Report = driver.findElement(By.xpath("(//a[@class='nav-item-hold'])[4]"));
+		Actions act = new Actions(driver);
+		act.moveToElement(Report).perform();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//span[@class='item-name'])[5]")).click();
+		Thread.sleep(5000);
+		String actualres =driver.findElement(By.xpath("(//table[@class='data_table table table-bordered']/tbody/tr[\" + r + \"]/td[\" + c + \"])[2249]")).getText();
+		System.out.println(actualres);
+		
+		
+		if(excep == actualres)
+		{
+			System.out.println("report total are matched");
+		}
+		else
+		{
+			System.out.println("report total are not matched");
+		}
